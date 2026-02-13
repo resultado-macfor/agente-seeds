@@ -40,7 +40,7 @@ from pathlib import Path
 # Configuração inicial
 st.set_page_config(
     layout="wide",
-    page_title="Agente Health",
+    page_title="Agente Seeds",
     page_icon="🤖"
 )
 
@@ -93,7 +93,7 @@ def criar_prompt_validacao_preciso(texto, nome_arquivo, contexto_agente):
 ###BEGIN TEXTO PARA VALIDAÇÃO###
 **Arquivo:** {nome_arquivo}
 **Conteúdo:**
-{texto[:12000]}
+{texto}
 ###END TEXTO PARA VALIDAÇÃO###
 
 ## FORMATO DE RESPOSTA OBRIGATÓRIO:
@@ -871,7 +871,7 @@ if st.sidebar.button("🔄 Trocar Agente", key="trocar_agente_global"):
     st.rerun()
 
 # --- SELECTBOX PARA TROCAR AGENTE ACIMA DAS ABAS ---
-st.title("🤖 Agente BD")
+st.title("🤖 Agente Seeds")
 
 # Carregar agentes disponíveis
 agentes = listar_agentes()
