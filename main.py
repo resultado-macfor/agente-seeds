@@ -1189,7 +1189,7 @@ with tab_mapping["✅ Validação Unificada"]:
     
     with subtab_txt_img:
         uploaded = st.file_uploader("Imagens:", type=["jpg", "png"], accept_multiple_files=True, key="img_text_upload")
-        if uploaded and st.button("Validar"):
+        if uploaded and st.button("Validar", key="valid_txt_img"):
             resultados = []
             for i, img in enumerate(uploaded):
                 with st.spinner(f"Imagem {i+1}..."):
@@ -1411,12 +1411,12 @@ with tab_mapping["📅 Criadora de Calendário"]:
 with tab_mapping["📊 Planejamento Estratégico"]:
     st.header("📊 Planejamento Estratégico")
     
-    nome = st.text_input("Cliente:")
+    nome = st.text_input("Cliente:", key="plan_estrategico_nome")
     ramo = st.text_input("Ramo:")
     objetivo = st.text_input("Objetivo:")
     publico = st.text_input("Público:")
-    
-    if st.button("Gerar Planejamento") and nome:
+
+    if st.button("Gerar Planejamento", key="btn_plan_estrategico") and nome:
         with st.spinner("Gerando..."):
             prompt = f"""
             Cliente: {nome}
@@ -1438,7 +1438,7 @@ with tab_mapping["📱 Planejamento de Mídias"]:
     orcamento = st.number_input("Orçamento (R$):", 1000, 1000000, 10000)
     periodo = st.selectbox("Período:", ["1 mês", "3 meses", "6 meses"])
     
-    if st.button("Gerar Planejamento") and nome:
+    if st.button("Gerar Planejamento", key="btn_plan_midias") and nome:
         with st.spinner("Gerando..."):
             prompt = f"""
             Cliente: {nome}
