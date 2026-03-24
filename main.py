@@ -814,12 +814,13 @@ def is_syn_agent(agent_name):
 
 def selecionar_agente_interface():
     st.title("Agente Seeds")
-    agentes = listar_agentes()
-    
+    nomes_permitidos = ["Golden", "NK", "Nidera"]
+    agentes = [a for a in listar_agentes() if any(n.lower() in a.get('nome', '').lower() for n in nomes_permitidos)]
+
     if not agentes:
         st.error("Nenhum agente disponível")
         return None
-    
+
     opcoes = []
     for agente in agentes:
         agente_completo = obter_agente_com_heranca(agente['_id'])
@@ -920,7 +921,8 @@ else:
 # Título e seletor de agente
 st.title("🤖 Agente Seeds")
 
-agentes = listar_agentes()
+nomes_permitidos = ["Golden", "NK", "Nidera"]
+agentes = [a for a in listar_agentes() if any(n.lower() in a.get('nome', '').lower() for n in nomes_permitidos)]
 if agentes:
     opcoes = []
     for agente in agentes:
